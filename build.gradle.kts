@@ -2,15 +2,8 @@ plugins {
     kotlin("jvm") version "1.5.31"
 }
 
-
-kotlin {
-    sourceSets {
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
-    }
+repositories {
+    mavenCentral()
 }
 
 dependencies {
