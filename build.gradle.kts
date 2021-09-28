@@ -1,5 +1,11 @@
 plugins {
     kotlin("jvm") version "1.5.31"
+
+    // Kotlin Linter
+    id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
+    id("org.jlleitschuh.gradle.ktlint-idea") version "10.2.0"
+
+    // Spring dependencies
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
 }
 
