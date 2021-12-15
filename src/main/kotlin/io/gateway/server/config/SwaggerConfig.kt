@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
+//@Order(Ordered.HIGHEST_PRECEDENCE)
 class SwaggerConfig(
     private val routeDefinitionLocator: RouteDefinitionLocator,
     private val swaggerUiConfigParameters: SwaggerUiConfigParameters,
@@ -14,7 +15,6 @@ class SwaggerConfig(
     @Bean
     fun init() {
         val definitions = routeDefinitionLocator.routeDefinitions.collectList().block()
-        swaggerUiConfigParameters.addGroup("test")
 
         definitions.stream().forEach { routeDefinition: RouteDefinition ->
             val name = routeDefinition.id
@@ -24,5 +24,7 @@ class SwaggerConfig(
             }
 
         }
+
+        swaggerUiConfigParameters.addGroup("test")
     }
 }

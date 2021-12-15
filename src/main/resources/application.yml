@@ -28,7 +28,13 @@ spring:
           filters:
             - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs # rewrite open api requests
 
+      x-forwarded:
+        enabled: true
+
+
 springdoc:
   swagger-ui:
     disable-swagger-default-url: true
     path: /api/documentation
+  cache:
+    disabled: true

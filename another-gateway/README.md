@@ -8,8 +8,3 @@ To ensure a consistent coding style, please run the following command after gett
 ./gradlew addKtlinkCheckGitPreCommitHook
 ./gradlew addKtlintFormatGitPreCommitHook
 ```
-
-# Follow up
-
-* OPA - ENVOY might have removed the x-forwarded headers
-*

@@ -1,0 +1,26 @@
+server:
+  port: 3333
+
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+
+      routes:
+        - id: api-gateway
+          uri: http://localhost:1111
+          predicates:
+            - Path=/**
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+    path: /api/documentation
+  cache:
+    disabled: true
