@@ -18,6 +18,9 @@ repositories {
 dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-gateway")
 
+    implementation("org.springdoc:springdoc-openapi-kotlin:1.6.1")
+    implementation("org.springdoc:springdoc-openapi-webflux-ui:1.6.1")
+
     testImplementation(kotlin("test"))
 }
 

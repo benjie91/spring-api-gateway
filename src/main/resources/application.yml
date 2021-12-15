@@ -4,10 +4,31 @@ server:
 spring:
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+
       routes:
         - id: sample-service
           uri: http://localhost:2222
           predicates:
-            - Path=/api/sample/**
+            - Path=/api/sample/**, /sample-service/**
           filters:
             - RewritePath=/api/sample/?(?<segment>.*), /$\{segment}
+            - RewritePath=/sample-service/?(?<segment>.*), /$\{segment}
+
+        - id: openapi
+          uri: http://localhost:${server.port}
+          predicates:
+            - Path=/v3/api-docs/**
+          filters:
+            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs # rewrite open api requests
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+    path: /api/documentation
